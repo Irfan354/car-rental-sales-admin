@@ -1,66 +1,51 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import { Card } from "primereact/card";
+import { Button } from "primereact/button";
 
-export default function Home() {
+export default function Dashboard() {
+  const stats = {
+    vehicles: 4,
+    bookings: 12,
+    earnings: 54000,
+  };
+
+  const cardFooter = (label) => (
+    <Button label={label} className="w-full p-button-primary" />
+  );
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="p-4">
+      <div className="grid">
+        <div className="col-12 md:col-4">
+          <Card 
+            title="Total Vehicles" 
+            className="text-center shadow-2" 
+            footer={cardFooter("Manage")}
           >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <p className="text-4xl font-bold text-900 m-0">{stats.vehicles}</p>
+          </Card>
         </div>
-      </main>
+        
+        <div className="col-12 md:col-4">
+          <Card 
+            title="Active Bookings" 
+            className="text-center shadow-2" 
+            footer={cardFooter("View Bookings")}
+          >
+            <p className="text-4xl font-bold text-900 m-0">{stats.bookings}</p>
+          </Card>
+        </div>
+        
+        <div className="col-12 md:col-4">
+          <Card 
+            title="Earnings" 
+            className="text-center shadow-2" 
+            footer={cardFooter("View Earnings")}
+          >
+            <p className="text-4xl font-bold text-900 m-0">₹{stats.earnings}</p>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 }

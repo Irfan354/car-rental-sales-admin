@@ -1,42 +1,15 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@import 'primereact/resources/themes/lara-light-cyan/theme.css';
+@import 'primereact/resources/primereact.min.css';
+@import 'primeicons/primeicons.css';
+@import 'primeflex/primeflex.css';
+
+/* menu bar */
+.p-menubar {
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.p-menubar .p-menuitem-link {
+  padding: 0.6rem 0.75rem; /* reduce padding */
+  font-size: 1.2 rem;       /* smaller font */
 }
