@@ -3,8 +3,10 @@ import axios from "axios";
 import { getToken, removeToken } from "./tokenService";
 
 // Base API configuration
+// api.js
+
 const api = axios.create({
-  baseURL: "http://localhost:8081/api", // Spring Boot backend
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL, // Spring Boot backend
   withCredentials: false,               // no cookies needed since we're using JWT
 });
 
