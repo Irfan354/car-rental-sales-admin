@@ -8,13 +8,14 @@ export const useHosters = () => {
 
   // Load all hosters
   const loadHosters = async () => {
-    debugger
+    // debugger
     try {
       setLoading(true);
       setError(null);
       
       const data = await hosterService.getAllHosters();
       console.log(" Loaded hosters:", data);
+      
 
       setHosters(data);
     } catch (err) {

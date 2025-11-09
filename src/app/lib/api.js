@@ -6,9 +6,13 @@ import { getToken, removeToken } from "./tokenService";
 // api.js
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL, // Spring Boot backend
-  withCredentials: false,               // no cookies needed since we're using JWT
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8081/api",
+  
+  // baseURL: "http://localhost:8081", 
+  // baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,     // Spring Boot backend
+  withCredentials: false,                               // no cookies needed since we're using JWT
 });
+
 
 // Request interceptor — inject jwt token into Authorization header
 api.interceptors.request.use((config) => {

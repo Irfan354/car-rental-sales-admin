@@ -1,11 +1,12 @@
 import api from "./api";
-import axios from "axios";
 
 export const hosterService = {
     // ✅ Get all hosters
     getAllHosters: async () => {
         const response = await api.get('/hosters');
         return response.data;
+        console.log("Hosters API response:", response.data);
+
     },
 
     // ✅ Get single hoster by ID

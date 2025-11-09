@@ -67,11 +67,12 @@ export default function Hosters() {
   const loading = hostersLoading || statesLoading || citiesLoading;
 
   // Stats
-  const totalHosters = hosters.length;
-  const activeHosters = hosters.filter((h) => h.hosterStatus === "ACTIVE").length;
-  const pendingHosters = hosters.filter((h) => h.hosterStatus === "IN_PROGRESS").length;
-  const suspendedHosters = hosters.filter((h) => h.hosterStatus === "IN_ACTIVE").length;
-  const verifiedHosters = hosters.filter((h) => h.approvalStatus === "APPROVED").length;
+ const totalHosters = (hosters || []).length;
+const activeHosters = (hosters || []).filter((h) => h.hosterStatus === "ACTIVE").length;
+const pendingHosters = (hosters || []).filter((h) => h.hosterStatus === "IN_PROGRESS").length;
+const suspendedHosters = (hosters || []).filter((h) => h.hosterStatus === "IN_ACTIVE").length;
+const verifiedHosters = (hosters || []).filter((h) => h.approvalStatus === "APPROVED").length;
+
 
   // Show toast messages
   const showToast = (severity, summary, detail) => {
@@ -145,7 +146,7 @@ const handleSaveValidation = async (newStatus) => {
     setValidatingHoster(null);
     setValidationNotes("");
   } catch (error) {
-    console.error("❌ Validation error:", error);
+    console.error("❌ Validation error:", error);  
 
     if (toast.current) {
       toast.current.show({
